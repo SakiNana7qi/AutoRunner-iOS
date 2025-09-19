@@ -9,7 +9,7 @@ TimeoutError: [WinError 10060]
 
 的问题，看 issue 无果后自己写了一个，结果好用了
 
-先装几个库 `pip install pymobiledevice3 coloredlogs geopy` 
+先装几个库 `pip install pymobiledevice3==4.26.3 coloredlogs==15.0.1 geopy==2.4.1` 
 
 然后管理员权限 `python main.py` 一键启动
 
