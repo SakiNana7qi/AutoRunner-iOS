@@ -9,7 +9,8 @@ TimeoutError: [WinError 10060]
 
 的问题，看 issue 无果后自己写了一个，结果好用了
 
+先装几个库 `pip install pymobiledevice3 coloredlogs geopy` 
 
-管理员权限 `python main.py` 一键启动
+然后管理员权限 `python main.py` 一键启动
 
 配置什么的参考 iOSRealRun-cli-18，差不多的
