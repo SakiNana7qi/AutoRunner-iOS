@@ -1,6 +1,6 @@
 对 [iOSRealRun-cli-18](https://github.com/BiancoChiu/iOSRealRun-cli-18) 进行了一点修复
 
-就是我自己是 Win11 + iOS18.7 ，出现了
+就是我自己是 Win11 + iOS18.7 + Python3.12.9，出现了
 
 ```
 TimeoutError: [WinError 10060]
