@@ -10,6 +10,7 @@ from pymobiledevice3.services.dvt.instruments.location_simulation import (
 
 from device_manager import DeviceManager
 import path_utils
+import time
 
 logger = logging.getLogger(__name__)
 
@@ -26,7 +27,10 @@ class GPSSimulator:
         self.device_manager.ensure_admin_rights()
         self.device_manager.get_device()
 
+        start_time = time.time()
+
         while True:
+
             try:
                 if not await self.device_manager.ensure_connection():
                     logger.warning(
@@ -34,6 +38,10 @@ class GPSSimulator:
                     )
                     await asyncio.sleep(self.config["RECONNECT_DELAY_SEC"])
                     continue
+
+                if time.time() - start_time > self.config["TOTALTIME"]:
+                    print(f"已到达预计时间 {self.config["TOTALTIME"]}s，自动停止跑步。")
+                    break
 
                 if self.resume_index >= len(self.current_lap_path):
                     print("-" * 50)
