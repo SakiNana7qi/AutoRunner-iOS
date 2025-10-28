@@ -17,7 +17,7 @@ def main():
 
     parser = argparse.ArgumentParser(description="Auto 冲冲步")
     parser.add_argument("--path", type=str, default="ZZGWest.txt", help="路径文件选择")
-    parser.add_argument("--time", type=int, default=1000, help="时间（s）")
+    parser.add_argument("--time", type=int, default=1100, help="时间（s）")
     parser.add_argument("--speed", type=float, default=3.1, help="速度（m/s）")
 
     args = parser.parse_args()

@@ -7,5 +7,5 @@ CONFIG = {
     "SPEED_VARIATION": 15,  # 速度随机变化范围 (值越大，速度波动越大)
     "UPDATE_INTERVAL_SEC": 0.5,  # GPS坐标更新的间隔时间 (秒)
     "RECONNECT_DELAY_SEC": 5,  # 连接失败后的重试延迟 (秒)
-    "TOTAL_TIME": 1000,
+    "TOTAL_TIME": 1100,
 }

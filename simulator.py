@@ -22,6 +22,7 @@ class GPSSimulator:
         self.base_route = path_utils.load_route_from_file(config["ROUTE_FILE"])
         self.current_lap_path = []
         self.resume_index = 0
+        self.time_reached = False  # 标记是否已到达预计时间
 
     async def run(self):
         self.device_manager.ensure_admin_rights()
@@ -39,9 +40,21 @@ class GPSSimulator:
                     await asyncio.sleep(self.config["RECONNECT_DELAY_SEC"])
                     continue
 
-                if time.time() - start_time > self.config["TOTALTIME"]:
-                    print(f"已到达预计时间 {self.config["TOTALTIME"]}s，自动停止跑步。")
-                    break
+                # 检查是否到达预计时间
+                if (
+                    not self.time_reached
+                    and time.time() - start_time > self.config["TOTALTIME"]
+                ):
+                    self.time_reached = True
+                    print(
+                        f"\n已到达预计时间 {self.config['TOTALTIME']}s，停止移动，保持当前定位。"
+                    )
+                    print("按 Ctrl+C 可退出程序。")
+
+                # 如果已到达时间，保持定位不动，不再更新位置
+                if self.time_reached:
+                    await asyncio.sleep(self.config["UPDATE_INTERVAL_SEC"])
+                    continue
 
                 if self.resume_index >= len(self.current_lap_path):
                     print("-" * 50)
