@@ -14,3 +14,11 @@ TimeoutError: [WinError 10060]
 然后管理员权限 `python main.py` 一键启动
 
 配置什么的参考 iOSRealRun-cli-18，差不多的
+
+```bash
+options:
+  -h, --help     show this help message and exit
+  --path PATH    路径文件选择
+  --time TIME    时间（s）
+  --speed SPEED  速度（m/s）
+```
